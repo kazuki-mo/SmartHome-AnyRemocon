@@ -102,6 +102,10 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
     // Cellが選択された際に呼び出される.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        if(indexPath.row == 4 || indexPath.row == 9 || indexPath.row == 14 || indexPath.row == 19 || indexPath.row == 24){
+            return
+        }
+        
         var value = ""
         
         let alert:UIAlertController = UIAlertController(title:"リモコン操作の設定",
@@ -444,7 +448,7 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
         }else if(before == "テレビ　電源ON"){
             after = "TV_Power_On"
         }else if(before == "テレビ　電源OFF"){
-            after = "TV_Power_On"
+            after = "TV_Power_Off"
         }else if(before == "エアコン　電源ON"){
             after = "Aircon_Power_On"
         }else if(before == "エアコン　電源OFF"){
@@ -456,7 +460,7 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
         }else if(before == "空気清浄機　電源ON"){
             after = "AirClean_Power_On"
         }else if(before == "空気清浄機　電源OFF"){
-            after = "AIrClean_Power_Off"
+            after = "AirClean_Power_Off"
         }
         
         return after
