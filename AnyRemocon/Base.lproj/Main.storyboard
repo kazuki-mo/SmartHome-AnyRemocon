@@ -18,38 +18,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mba-Jb-zcy">
-                                <rect key="frame" x="0.0" y="26" width="320" height="57"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OnP-eq-fHY">
-                                        <rect key="frame" x="8" y="0.0" width="54" height="54"/>
+                                        <rect key="frame" x="8" y="5" width="54" height="54"/>
+                                        <color key="backgroundColor" red="0.1529411765" green="0.70980392160000005" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="TV_icon.png"/>
                                         <connections>
                                             <action selector="BT_TV:" destination="BYZ-38-t0r" eventType="touchUpInside" id="knE-4N-kf0"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IpH-s4-Ac1">
-                                        <rect key="frame" x="71" y="0.0" width="54" height="54"/>
+                                        <rect key="frame" x="71" y="5" width="54" height="54"/>
                                         <state key="normal" image="Aircon_icon.png"/>
                                         <connections>
                                             <action selector="BT_Aircon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aIZ-7i-REF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="la0-C3-QRn">
-                                        <rect key="frame" x="128" y="0.0" width="54" height="54"/>
+                                        <rect key="frame" x="128" y="5" width="54" height="54"/>
                                         <state key="normal" image="Light_icon.png"/>
                                         <connections>
                                             <action selector="BT_Light:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PAZ-5D-jHk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUS-j1-uJJ">
-                                        <rect key="frame" x="185" y="0.0" width="54" height="54"/>
+                                        <rect key="frame" x="185" y="5" width="54" height="54"/>
                                         <state key="normal" image="AirClean_icon.png"/>
                                         <connections>
                                             <action selector="BT_AirClean:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xOu-eR-I13"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdv-qH-HMQ">
-                                        <rect key="frame" x="252" y="0.0" width="54" height="54"/>
+                                        <rect key="frame" x="252" y="5" width="54" height="54"/>
                                         <state key="normal" image="Remocon_icon.png"/>
                                         <connections>
                                             <action selector="BT_Remocon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yuG-Sm-JyV"/>
@@ -61,7 +62,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TV_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="dkg-Eg-CUx">
                                 <rect key="frame" x="60" y="216" width="200" height="200"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Aircon_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="a9S-pR-ZQZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Aircon_icon_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="a9S-pR-ZQZ">
                                 <rect key="frame" x="60" y="216" width="200" height="200"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Light_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="WEz-bj-opV">
@@ -77,12 +78,18 @@
                                 <rect key="frame" x="176" y="513" width="130" height="47"/>
                                 <state key="normal" title="Button" image="SettingButton.png"/>
                                 <connections>
-                                    <action selector="BT_Setting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c4Q-Ls-BiD"/>
+                                    <action selector="BT_Setting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oJe-Uo-1aY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ここに，操作したコマンドの説明が入ります" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgM-59-5Kg">
                                 <rect key="frame" x="-10" y="91" width="340" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ほげほげ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Tk-Eo-S8s">
+                                <rect key="frame" x="60" y="424" width="200" height="44"/>
+                                <fontDescription key="fontDescription" name="OriyaSangamMN-Bold" family="Oriya Sangam MN" pointSize="29"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -94,13 +101,19 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="BT_Setting" destination="D0E-8t-RZR" id="tFk-zY-98C"/>
+                        <outlet property="BT_AirClean" destination="CUS-j1-uJJ" id="QgY-3U-Ov7"/>
+                        <outlet property="BT_Aircon" destination="IpH-s4-Ac1" id="4hg-Nn-ZgR"/>
+                        <outlet property="BT_Light" destination="la0-C3-QRn" id="FKc-V2-9vC"/>
+                        <outlet property="BT_Remocon" destination="gdv-qH-HMQ" id="Qf8-ib-XIb"/>
+                        <outlet property="BT_Setting" destination="D0E-8t-RZR" id="n2U-9R-fBT"/>
+                        <outlet property="BT_TV" destination="OnP-eq-fHY" id="X5v-s4-J0g"/>
                         <outlet property="Im_AirClean" destination="tcx-OY-r7U" id="7JT-5l-6wB"/>
                         <outlet property="Im_Aircon" destination="a9S-pR-ZQZ" id="ZQH-VJ-SLV"/>
                         <outlet property="Im_Light" destination="WEz-bj-opV" id="XTU-6B-h91"/>
                         <outlet property="Im_Remocon" destination="yUS-3K-b09" id="lJ8-VJ-CYB"/>
                         <outlet property="Im_TV" destination="dkg-Eg-CUx" id="ulQ-kG-XTA"/>
                         <outlet property="Lb_Text" destination="cgM-59-5Kg" id="R5S-OV-JDX"/>
+                        <outlet property="Lb_Type" destination="3Tk-Eo-S8s" id="G35-DT-87w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -119,17 +132,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eQ-Eq-eeP">
-                                <rect key="frame" x="115" y="269" width="90" height="30"/>
-                                <state key="normal" title="メイン画面へ"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddC-aR-VN0">
+                                <rect key="frame" x="224" y="513" width="87" height="47"/>
+                                <state key="normal" title="Button" image="SetButton.png"/>
                                 <connections>
-                                    <action selector="BT_GoMain:" destination="nns-gW-A6X" eventType="touchUpInside" id="a6E-IO-IWR"/>
+                                    <action selector="BT_Set:" destination="nns-gW-A6X" eventType="touchUpInside" id="a9V-yS-r6r"/>
+                                    <action selector="BT_Setting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ifn-Da-iZ3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25l-tV-xf5">
+                                <rect key="frame" x="12" y="513" width="130" height="47"/>
+                                <state key="normal" title="Button" image="CancelButton.png"/>
+                                <connections>
+                                    <action selector="BT_Cancel:" destination="nns-gW-A6X" eventType="touchUpInside" id="P88-K9-dYt"/>
+                                    <action selector="BT_Setting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uSm-Om-zH5"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hbj-lH-KFy">
+                                <rect key="frame" x="0.0" y="28" width="320" height="477"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SettingCell" selectionStyle="default" indentationWidth="10" id="f20-7x-ym5">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f20-7x-ym5" id="BjH-nK-hm2">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.8772181402" green="1" blue="0.88439418849999996" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="Tv_Setting" destination="Hbj-lH-KFy" id="8EY-Mp-Byg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrk-Bq-zNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,8 +202,11 @@
     <resources>
         <image name="AirClean_icon.png" width="593" height="593"/>
         <image name="Aircon_icon.png" width="593" height="593"/>
+        <image name="Aircon_icon_2.png" width="593" height="593"/>
+        <image name="CancelButton.png" width="510" height="166"/>
         <image name="Light_icon.png" width="593" height="593"/>
         <image name="Remocon_icon.png" width="593" height="593"/>
+        <image name="SetButton.png" width="340" height="177"/>
         <image name="SettingButton.png" width="510" height="177"/>
         <image name="TV_icon.png" width="593" height="593"/>
     </resources>

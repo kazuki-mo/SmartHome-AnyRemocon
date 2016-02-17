@@ -22,6 +22,15 @@
 		7DF6C6E11C747FE800131512 /* TV_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C6DD1C747FE800131512 /* TV_icon.png */; };
 		7DF6C6E31C74829300131512 /* Remocon_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C6E21C74829300131512 /* Remocon_icon.png */; };
 		7DF6C6E51C7489B100131512 /* SettingButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C6E41C7489B100131512 /* SettingButton.png */; };
+		7DF6C6E71C74AA0800131512 /* UIColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6C6E61C74AA0700131512 /* UIColorUtil.swift */; };
+		7DF6C6E91C74B53900131512 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF6C6E81C74B53900131512 /* libsqlite3.dylib */; };
+		7DF6C6ED1C74B5D400131512 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6C6EC1C74B5D400131512 /* SwiftData.swift */; };
+		7DF6C6F11C74BD7D00131512 /* CancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C6EF1C74BD7D00131512 /* CancelButton.png */; };
+		7DF6C6F21C74BD7D00131512 /* SetButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C6F01C74BD7D00131512 /* SetButton.png */; };
+		7DF6C7441C74CAF100131512 /* DBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6C7431C74CAF100131512 /* DBModel.swift */; };
+		7DF6C7461C74CB4B00131512 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6C7451C74CB4B00131512 /* DataModel.swift */; };
+		7DF6C7481C74D9CD00131512 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C7471C74D9CD00131512 /* images.xcassets */; };
+		7DF6C74A1C74F7C400131512 /* Aircon_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF6C7491C74F7C400131512 /* Aircon_icon_2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +72,16 @@
 		7DF6C6DD1C747FE800131512 /* TV_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TV_icon.png; path = Images/TV_icon.png; sourceTree = "<group>"; };
 		7DF6C6E21C74829300131512 /* Remocon_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Remocon_icon.png; path = Images/Remocon_icon.png; sourceTree = "<group>"; };
 		7DF6C6E41C7489B100131512 /* SettingButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingButton.png; path = Images/SettingButton.png; sourceTree = "<group>"; };
+		7DF6C6E61C74AA0700131512 /* UIColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtil.swift; sourceTree = "<group>"; };
+		7DF6C6E81C74B53900131512 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
+		7DF6C6EC1C74B5D400131512 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftData.swift; sourceTree = "<group>"; };
+		7DF6C6EE1C74B60D00131512 /* Briding-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Briding-Header.h"; sourceTree = "<group>"; };
+		7DF6C6EF1C74BD7D00131512 /* CancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CancelButton.png; path = Images/CancelButton.png; sourceTree = "<group>"; };
+		7DF6C6F01C74BD7D00131512 /* SetButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SetButton.png; path = Images/SetButton.png; sourceTree = "<group>"; };
+		7DF6C7431C74CAF100131512 /* DBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBModel.swift; sourceTree = "<group>"; };
+		7DF6C7451C74CB4B00131512 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		7DF6C7471C74D9CD00131512 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		7DF6C7491C74F7C400131512 /* Aircon_icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Aircon_icon_2.png; path = Images/Aircon_icon_2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DF6C6E91C74B53900131512 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +113,9 @@
 		7DF6C68A1C74647300131512 = {
 			isa = PBXGroup;
 			children = (
+				7DF6C6EC1C74B5D400131512 /* SwiftData.swift */,
+				7DF6C6EE1C74B60D00131512 /* Briding-Header.h */,
+				7DF6C6E81C74B53900131512 /* libsqlite3.dylib */,
 				7DF6C6951C74647300131512 /* AnyRemocon */,
 				7DF6C6AD1C74647300131512 /* AnyRemoconTests */,
 				7DF6C6B81C74647300131512 /* AnyRemoconUITests */,
@@ -122,6 +145,10 @@
 				7DF6C6A21C74647300131512 /* LaunchScreen.storyboard */,
 				7DF6C6A51C74647300131512 /* Info.plist */,
 				7DF6C69D1C74647300131512 /* AnyRemocon.xcdatamodeld */,
+				7DF6C6E61C74AA0700131512 /* UIColorUtil.swift */,
+				7DF6C7431C74CAF100131512 /* DBModel.swift */,
+				7DF6C7451C74CB4B00131512 /* DataModel.swift */,
+				7DF6C7471C74D9CD00131512 /* images.xcassets */,
 			);
 			path = AnyRemocon;
 			sourceTree = "<group>";
@@ -147,6 +174,9 @@
 		7DF6C6C71C74672A00131512 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7DF6C7491C74F7C400131512 /* Aircon_icon_2.png */,
+				7DF6C6EF1C74BD7D00131512 /* CancelButton.png */,
+				7DF6C6F01C74BD7D00131512 /* SetButton.png */,
 				7DF6C6E41C7489B100131512 /* SettingButton.png */,
 				7DF6C6E21C74829300131512 /* Remocon_icon.png */,
 				7DF6C6DA1C747FE800131512 /* AirClean_icon.png */,
@@ -263,12 +293,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DF6C6E51C7489B100131512 /* SettingButton.png in Resources */,
+				7DF6C74A1C74F7C400131512 /* Aircon_icon_2.png in Resources */,
 				7DF6C6E11C747FE800131512 /* TV_icon.png in Resources */,
 				7DF6C6A41C74647300131512 /* LaunchScreen.storyboard in Resources */,
+				7DF6C6F11C74BD7D00131512 /* CancelButton.png in Resources */,
 				7DF6C6A11C74647300131512 /* Assets.xcassets in Resources */,
 				7DF6C69C1C74647300131512 /* Main.storyboard in Resources */,
 				7DF6C6DE1C747FE800131512 /* AirClean_icon.png in Resources */,
+				7DF6C6F21C74BD7D00131512 /* SetButton.png in Resources */,
 				7DF6C6DF1C747FE800131512 /* Aircon_icon.png in Resources */,
+				7DF6C7481C74D9CD00131512 /* images.xcassets in Resources */,
 				7DF6C6E31C74829300131512 /* Remocon_icon.png in Resources */,
 				7DF6C6E01C747FE800131512 /* Light_icon.png in Resources */,
 			);
@@ -296,9 +330,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DF6C6C91C74699700131512 /* SettingController.swift in Sources */,
+				7DF6C7441C74CAF100131512 /* DBModel.swift in Sources */,
+				7DF6C6ED1C74B5D400131512 /* SwiftData.swift in Sources */,
 				7DF6C6991C74647300131512 /* ViewController.swift in Sources */,
 				7DF6C6971C74647300131512 /* AppDelegate.swift in Sources */,
+				7DF6C7461C74CB4B00131512 /* DataModel.swift in Sources */,
 				7DF6C69F1C74647300131512 /* AnyRemocon.xcdatamodeld in Sources */,
+				7DF6C6E71C74AA0800131512 /* UIColorUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +483,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ubi.moriya.AnyRemocon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Briding-Header.h";
 			};
 			name = Debug;
 		};
@@ -459,6 +498,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ubi.moriya.AnyRemocon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Briding-Header.h";
 			};
 			name = Release;
 		};

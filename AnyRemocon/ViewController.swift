@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     
     let session: NSURLSession = NSURLSession.sharedSession()
     
+    let dbModel = DBModel()
+    var objects = NSMutableArray()
+    
     var Flag_TV = false
     var Flag_Aircon = false
     var Flag_Light = false
@@ -20,6 +23,13 @@ class ViewController: UIViewController {
     var Flag_Remocon = false
     
     @IBOutlet weak var Lb_Text: UILabel!
+    @IBOutlet weak var Lb_Type: UILabel!
+
+    @IBOutlet weak var BT_Remocon: UIButton!
+    @IBOutlet weak var BT_AirClean: UIButton!
+    @IBOutlet weak var BT_Light: UIButton!
+    @IBOutlet weak var BT_Aircon: UIButton!
+    @IBOutlet weak var BT_TV: UIButton!
 
     @IBOutlet weak var BT_Setting: UIButton!
     @IBOutlet weak var Im_Remocon: UIImageView!
@@ -35,6 +45,7 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(mySettingController, animated: true)
         
     }
+
     @IBAction func BT_Remocon(sender: AnyObject) {
         Flag_TV = false
         Flag_Aircon = false
@@ -48,6 +59,14 @@ class ViewController: UIViewController {
         Im_AirClean.hidden = true
         Im_Remocon.hidden = false
         BT_Setting.hidden = false
+        
+        BT_TV.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Aircon.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Light.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_AirClean.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Remocon.backgroundColor = UIColorUtil.rgb(0xe0ffe2)
+        
+        Lb_Type.text = "ユーザ設定"
     }
     @IBAction func BT_AirClean(sender: AnyObject) {
         Flag_TV = false
@@ -62,6 +81,14 @@ class ViewController: UIViewController {
         Im_AirClean.hidden = false
         Im_Remocon.hidden = true
         BT_Setting.hidden = true
+        
+        BT_TV.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Aircon.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Light.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_AirClean.backgroundColor = UIColorUtil.rgb(0xe0ffe2)
+        BT_Remocon.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        
+        Lb_Type.text = "空気清浄機"
     }
     @IBAction func BT_Light(sender: AnyObject) {
         Flag_TV = false
@@ -76,6 +103,14 @@ class ViewController: UIViewController {
         Im_AirClean.hidden = true
         Im_Remocon.hidden = true
         BT_Setting.hidden = true
+        
+        BT_TV.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Aircon.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Light.backgroundColor = UIColorUtil.rgb(0xe0ffe2)
+        BT_AirClean.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Remocon.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        
+        Lb_Type.text = "天井照明"
     }
     @IBAction func BT_Aircon(sender: AnyObject) {
         Flag_TV = false
@@ -90,6 +125,14 @@ class ViewController: UIViewController {
         Im_AirClean.hidden = true
         Im_Remocon.hidden = true
         BT_Setting.hidden = true
+        
+        BT_TV.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Aircon.backgroundColor = UIColorUtil.rgb(0xe0ffe2)
+        BT_Light.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_AirClean.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Remocon.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        
+        Lb_Type.text = "エアコン"
     }
     @IBAction func BT_TV(sender: AnyObject) {
         Flag_TV = true
@@ -104,6 +147,14 @@ class ViewController: UIViewController {
         Im_AirClean.hidden = true
         Im_Remocon.hidden = true
         BT_Setting.hidden = true
+        
+        BT_TV.backgroundColor = UIColorUtil.rgb(0xe0ffe2)
+        BT_Aircon.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Light.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_AirClean.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        BT_Remocon.backgroundColor = UIColorUtil.rgb(0x27b54a)
+        
+        Lb_Type.text = "テレビ"
     }
 
     override func viewDidLoad() {
@@ -118,6 +169,46 @@ class ViewController: UIViewController {
         Im_Remocon.hidden = true
         BT_Setting.hidden = true
         
+        Lb_Type.text = ""
+        
+        // single swipe up
+        let swipeUpGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipeUp:")
+        swipeUpGesture.numberOfTouchesRequired = 1  // number of fingers
+        swipeUpGesture.direction = UISwipeGestureRecognizerDirection.Up
+        self.view.addGestureRecognizer(swipeUpGesture)
+        
+        // single swipe down
+        let swipeDownGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipeDown:")
+        swipeDownGesture.numberOfTouchesRequired = 1
+        swipeDownGesture.direction = UISwipeGestureRecognizerDirection.Down
+        self.view.addGestureRecognizer(swipeDownGesture)
+        
+        // single swipe left
+        let swipeLeftGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipeLeft:")
+        swipeLeftGesture.numberOfTouchesRequired = 1  // number of fingers
+        swipeLeftGesture.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeLeftGesture)
+        
+        // single swipe right
+        let swipeRightGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipeRight:")
+        swipeRightGesture.numberOfTouchesRequired = 1  // number of fingers
+        swipeRightGesture.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRightGesture)
+        
+//        let data = DataModel(touchestype: "single", command1: "TV_Power_On", command2: "Nothing", command3: "Nothing", command4: "Nothing")
+//        dbModel.update(data)
+        
+        objects = dbModel.getAll()
+        for object in objects{
+            let id = object["ID"] as! Int
+            let touchestype = object["touchestype"] as! String
+            let command1 = object["command1"] as! String
+            let command2 = object["command2"] as! String
+            let command3 = object["command3"] as! String
+            let command4 = object["command4"] as! String
+            
+            print("ID:\(id), touchestype:\(touchestype), command1:\(command1), command2:\(command2), command3:\(command3), command4:\(command4)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -153,6 +244,22 @@ class ViewController: UIViewController {
             }
             
         }
+    }
+    
+    func handleSwipeUp(sender: UITapGestureRecognizer){
+        Lb_Text.text = "Swiped up!"
+    }
+    
+    func handleSwipeDown(sender: UITapGestureRecognizer){
+        Lb_Text.text = "Swiped down!"
+    }
+    
+    func handleSwipeLeft(sender: UITapGestureRecognizer){
+        Lb_Text.text = "Swiped left!"
+    }
+    
+    func handleSwipeRight(sender: UITapGestureRecognizer){
+        Lb_Text.text = "Swiped right!"
     }
     
     func http_get(url: NSURL, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
