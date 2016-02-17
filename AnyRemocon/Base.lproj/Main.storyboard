@@ -80,6 +80,12 @@
                                     <action selector="BT_Setting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c4Q-Ls-BiD"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ここに，操作したコマンドの説明が入ります" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgM-59-5Kg">
+                                <rect key="frame" x="-10" y="91" width="340" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.87721814023123668" green="1" blue="0.88439418853440721" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -94,6 +100,7 @@
                         <outlet property="Im_Light" destination="WEz-bj-opV" id="XTU-6B-h91"/>
                         <outlet property="Im_Remocon" destination="yUS-3K-b09" id="lJ8-VJ-CYB"/>
                         <outlet property="Im_TV" destination="dkg-Eg-CUx" id="ulQ-kG-XTA"/>
+                        <outlet property="Lb_Text" destination="cgM-59-5Kg" id="R5S-OV-JDX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
