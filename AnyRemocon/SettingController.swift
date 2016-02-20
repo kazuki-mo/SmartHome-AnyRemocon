@@ -157,7 +157,7 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
                 value = "テレビ　チャンネル↑"
                 tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
                 
-                //self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
         })
         
         let TV_Ch_Down_Action:UIAlertAction = UIAlertAction(title: "テレビ　チャンネル↓",
@@ -167,7 +167,27 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
                 value = "テレビ　チャンネル↓"
                 tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
                 
-                //self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let TV_Volume_Up_Action:UIAlertAction = UIAlertAction(title: "テレビ　音量＋",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "テレビ　音量＋"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let TV_Volume_Down_Action:UIAlertAction = UIAlertAction(title: "テレビ　音量−",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "テレビ　音量−"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
         })
         
         let Aircon_Power_On_Action:UIAlertAction = UIAlertAction(title: "エアコン　電源ON",
@@ -190,6 +210,66 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
                 self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
         })
         
+        let Aircon_SetTemp_Up_Action:UIAlertAction = UIAlertAction(title: "エアコン　設定温度＋",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "エアコン　設定温度＋"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let Aircon_SetTemp_Down_Action:UIAlertAction = UIAlertAction(title: "エアコン　設定温度−",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "エアコン　設定温度−"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let Aircon_AirFlow_Up_Action:UIAlertAction = UIAlertAction(title: "エアコン　風量＋",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "エアコン　風量＋"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let Aircon_AirFlow_Down_Action:UIAlertAction = UIAlertAction(title: "エアコン　風量−",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "エアコン　風量−"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let Aircon_DriveMode_Up_Action:UIAlertAction = UIAlertAction(title: "エアコン　運転モード→",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "エアコン　運転モード→"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let Aircon_DriveMode_Down_Action:UIAlertAction = UIAlertAction(title: "エアコン　運転モード←",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "エアコン　運転モード←"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
         let Light_Power_On_Action:UIAlertAction = UIAlertAction(title: "天井照明　電源ON",
             style: UIAlertActionStyle.Default,
             handler:{
@@ -205,6 +285,66 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
             handler:{
                 (action:UIAlertAction) -> Void in
                 value = "天井照明　電源OFF"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let Light_LightLevel_Up_Action:UIAlertAction = UIAlertAction(title: "天井照明　明るさ＋",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "天井照明　明るさ＋"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let Light_LightLevel_Down_Action:UIAlertAction = UIAlertAction(title: "天井照明　明るさ−",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "天井照明　明るさ−"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let Light_LightColor_Up_Action:UIAlertAction = UIAlertAction(title: "天井照明　光色→",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "天井照明　光色→"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let Light_LightColor_Down_Action:UIAlertAction = UIAlertAction(title: "天井照明　光色←",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "天井照明　光色←"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let Light_LightingMode_Up_Action:UIAlertAction = UIAlertAction(title: "天井照明　点灯モード→",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "天井照明　点灯モード→"
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
+                
+                self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
+        })
+        
+        let Light_LightingMode_Down_Action:UIAlertAction = UIAlertAction(title: "天井照明　点灯モード←",
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                value = "天井照明　点灯モード←"
                 tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0))?.detailTextLabel?.text = "\(value)"
                 
                 self.setDictionary(indexPath.row, value: self.changeName_Display("\(value)"))
@@ -237,10 +377,24 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
         alert.addAction(TV_Power_Off_Action)
         alert.addAction(TV_Ch_Up_Action)
         alert.addAction(TV_Ch_Down_Action)
+        alert.addAction(TV_Volume_Up_Action)
+        alert.addAction(TV_Volume_Down_Action)
         alert.addAction(Aircon_Power_On_Action)
         alert.addAction(Aircon_Power_Off_Action)
+        alert.addAction(Aircon_SetTemp_Up_Action)
+        alert.addAction(Aircon_SetTemp_Down_Action)
+        alert.addAction(Aircon_AirFlow_Up_Action)
+        alert.addAction(Aircon_AirFlow_Down_Action)
+        alert.addAction(Aircon_DriveMode_Up_Action)
+        alert.addAction(Aircon_DriveMode_Down_Action)
         alert.addAction(Light_Power_On_Action)
         alert.addAction(Light_Power_Off_Action)
+        alert.addAction(Light_LightLevel_Up_Action)
+        alert.addAction(Light_LightLevel_Down_Action)
+        alert.addAction(Light_LightColor_Up_Action)
+        alert.addAction(Light_LightColor_Down_Action)
+        alert.addAction(Light_LightingMode_Up_Action)
+        alert.addAction(Light_LightingMode_Down_Action)
         alert.addAction(AirClean_Power_On_Action)
         alert.addAction(AirClean_Power_Off_Action)
         
@@ -423,14 +577,46 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
             after = "テレビ　電源ON"
         }else if(before == "TV_Power_Off"){
             after = "テレビ　電源OFF"
+        }else if(before == "TV_CH_Up"){
+            after = "テレビ　チャンネル↑"
+        }else if(before == "TV_CH_Down"){
+            after = "テレビ　チャンネル↓"
+        }else if(before == "TV_Volume_Up"){
+            after = "テレビ　音量＋"
+        }else if(before == "TV_Volume_Down"){
+            after = "テレビ　音量−"
         }else if(before == "Aircon_Power_On"){
             after = "エアコン　電源ON"
         }else if(before == "Aircon_Power_Off"){
             after = "エアコン　電源OFF"
+        }else if(before == "Aircon_SetTemp_Up"){
+            after = "エアコン　設定温度＋"
+        }else if(before == "Aircon_SetTemp_Down"){
+            after = "エアコン　設定温度−"
+        }else if(before == "Aircon_AirFlow_Up"){
+            after = "エアコン　風量＋"
+        }else if(before == "Aircon_AirFlow_Down"){
+            after = "エアコン　風量−"
+        }else if(before == "Aircon_DriveMode_Up"){
+            after = "エアコン　運転モード→"
+        }else if(before == "Aircon_DriveMode_Down"){
+            after = "エアコン　運転モード←"
         }else if(before == "Light_Power_On"){
             after = "天井照明　電源ON"
         }else if(before == "Light_Power_Off"){
             after = "天井照明　電源OFF"
+        }else if(before == "Light_LightLevel_Up"){
+            after = "天井照明　明るさ＋"
+        }else if(before == "Light_LightLevel_Down"){
+            after = "天井照明　明るさ−"
+        }else if(before == "Light_LightColor_Up"){
+            after = "天井照明　光色→"
+        }else if(before == "Light_LightColor_Down"){
+            after = "天井照明　光色←"
+        }else if(before == "Light_LightingMode_Up"){
+            after = "天井照明　点灯モード→"
+        }else if(before == "Light_LightingMode_Down"){
+            after = "天井照明　点灯モード←"
         }else if(before == "AirClean_Power_On"){
             after = "空気清浄機　電源ON"
         }else if(before == "AirClean_Power_Off"){
@@ -449,14 +635,46 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
             after = "TV_Power_On"
         }else if(before == "テレビ　電源OFF"){
             after = "TV_Power_Off"
+        }else if(before == "テレビ　チャンネル↑"){
+            after = "TV_CH_Up"
+        }else if(before == "テレビ　チャンネル↓"){
+            after = "TV_CH_Down"
+        }else if(before == "テレビ　音量＋"){
+            after = "TV_Volume_Up"
+        }else if(before == "テレビ　音量−"){
+            after = "TV_Volume_Down"
         }else if(before == "エアコン　電源ON"){
             after = "Aircon_Power_On"
         }else if(before == "エアコン　電源OFF"){
             after = "Aircon_Power_Off"
+        }else if(before == "エアコン　設定温度＋"){
+            after = "Aircon_SetTemp_Up"
+        }else if(before == "エアコン　設定温度−"){
+            after = "Aircon_SetTemp_Down"
+        }else if(before == "エアコン　風量＋"){
+            after = "Aircon_AirFlow_Up"
+        }else if(before == "エアコン　風量−"){
+            after = "Aircon_AirFlow_Down"
+        }else if(before == "エアコン　運転モード→"){
+            after = "Aircon_DriveMode_Up"
+        }else if(before == "エアコン　運転モード←"){
+            after = "Aircon_DriveMode_Down"
         }else if(before == "天井照明　電源ON"){
             after = "Light_Power_On"
         }else if(before == "天井照明　電源OFF"){
             after = "Light_Power_Off"
+        }else if(before == "天井照明　明るさ＋"){
+            after = "Light_LightLevel_Up"
+        }else if(before == "天井照明　明るさ−"){
+            after = "Light_LightLevel_Down"
+        }else if(before == "天井照明　光色→"){
+            after = "Light_LightColor_Up"
+        }else if(before == "天井照明　光色←"){
+            after = "Light_LightColor_Down"
+        }else if(before == "天井照明　点灯モード→"){
+            after = "Light_LightingMode_Up"
+        }else if(before == "天井照明　点灯モード←"){
+            after = "Light_LightingMode_Down"
         }else if(before == "空気清浄機　電源ON"){
             after = "AirClean_Power_On"
         }else if(before == "空気清浄機　電源OFF"){

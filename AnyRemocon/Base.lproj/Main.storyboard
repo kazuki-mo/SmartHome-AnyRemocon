@@ -93,6 +93,30 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="設定温度：0度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsv-aL-b3R">
+                                <rect key="frame" x="20" y="125" width="138" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="運転モード：暖房" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7a-WX-2Tc">
+                                <rect key="frame" x="20" y="171" width="280" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="風量：1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTE-80-af0">
+                                <rect key="frame" x="161" y="125" width="145" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="電源：ON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c47-Vi-Y8c">
+                                <rect key="frame" x="20" y="476" width="280" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.87721814023123668" green="1" blue="0.88439418853440721" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -112,6 +136,10 @@
                         <outlet property="Im_Light" destination="WEz-bj-opV" id="XTU-6B-h91"/>
                         <outlet property="Im_Remocon" destination="yUS-3K-b09" id="lJ8-VJ-CYB"/>
                         <outlet property="Im_TV" destination="dkg-Eg-CUx" id="ulQ-kG-XTA"/>
+                        <outlet property="Lb_1" destination="Vsv-aL-b3R" id="iXi-aC-b0m"/>
+                        <outlet property="Lb_2" destination="sTE-80-af0" id="cBM-48-yKU"/>
+                        <outlet property="Lb_3" destination="u7a-WX-2Tc" id="w0j-kZ-1Go"/>
+                        <outlet property="Lb_Power" destination="c47-Vi-Y8c" id="o90-V4-em7"/>
                         <outlet property="Lb_Text" destination="cgM-59-5Kg" id="R5S-OV-JDX"/>
                         <outlet property="Lb_Type" destination="3Tk-Eo-S8s" id="G35-DT-87w"/>
                     </connections>
