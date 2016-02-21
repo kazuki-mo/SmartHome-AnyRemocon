@@ -59,7 +59,7 @@ class DBModel {
         return result!
     }
     
-    // DB内データの最新10件を取得
+    // DB内データの最新6件を取得
     func getAll()->NSMutableArray {
         let result = NSMutableArray()
         let (resultSet, err) = SD.executeQuery("SELECT * FROM anyremocon ORDER BY ID DESC LIMiT 6")
@@ -82,57 +82,7 @@ class DBModel {
         return result
     }
     
-    // DB内にあるSenStickのデバイス名とUUIDの一覧を取得
-    func getDevices()->NSMutableArray {
-        let result = NSMutableArray()
-        let (resultSet, err) = SD.executeQuery("SELECT ID,devicename,uuid FROM meta_values")
-        _ = NSDateFormatter()
-        if err != nil {
-        } else {
-            for row in resultSet {
-                if let _ = row["ID"]?.asInt() {
-                    let devicename = row["devicename"]?.asString()!
-                    let uuid = row["uuid"]?.asString()!
-                    let dic = ["devicename":devicename!,"uuid":uuid!]
-                    if (!result.containsObject(dic)){
-                        result.addObject(dic)
-                    }
-                }
-            }
-        }
-        return result
-    }
-    
-    // 指定されたDevice名とUUIDに一致するメタデータをすべて取得
-    func getFiles(devicename:String, uuid:String)->NSMutableArray {
-        let result = NSMutableArray()
-        let (resultSet, err) = SD.executeQuery("SELECT * FROM meta_values WHERE devicename=? and uuid=?", withArgs: [devicename,uuid])
-        _ = NSDateFormatter()
-        if err != nil {
-        } else {
-            for row in resultSet {
-                if let id = row["ID"]?.asInt() {
-                    let filename = row["filename"]?.asString()!
-                    let devicename = row["devicename"]?.asString()!
-                    let macaddress = row["macaddress"]?.asString()!
-                    let uuid = row["uuid"]?.asString()!
-                    let totaltime = row["totaltime"]?.asInt()!
-                    let startdate = row["startdate"]?.asString()!
-                    let sensortypes = row["sensortypes"]?.asString()!
-                    let csvpath = row["csvpath"]?.asString()!
-                    let csvsize = row["csvsize"]?.asString()!
-                    let movpath = row["movpath"]?.asString()!
-                    let movsize = row["movsize"]?.asString()!
-                    let location = row["location"]?.asString()!
-                    let dic = ["ID":id,"filename":filename!,"devicename":devicename!,"macaddress":macaddress!,"uuid":uuid!,"totaltime":totaltime!,"startdate":startdate!,"sensortypes":sensortypes!,"csvpath":csvpath!,"csvsize":csvsize!,"movpath":movpath!,"movsize":movsize!,"location":location!]
-                    result.addObject(dic)
-                }
-            }
-        }
-        return result
-    }
-    
-    // 指定されたIDのメタデータのFile名，Record総時間，Record開始時刻を更新
+    // touchestypeが一致する行のcommand1〜4を更新
     func update(data:DataModel) -> Bool{
         if let _ = SD.executeChange("UPDATE anyremocon SET command1=?,command2=?,command3=?,command4=? WHERE touchestype = ?", withArgs: [data.command1, data.command2, data.command3, data.command4, data.touchestype]) {
             //there was an error during the insert, handle it here
@@ -142,9 +92,9 @@ class DBModel {
         return true
     }
     
-    // 指定されたIDのデータを削除
-    func delete(id:Int) -> Bool {
-        if let _ = SD.executeChange("DELETE FROM meta_values WHERE ID = ?", withArgs: [id]) {
+    // 指定されたtouchestypeのデータを削除
+    func delete(touchestype:String) -> Bool {
+        if let _ = SD.executeChange("DELETE FROM anyremocon WHERE touchestype = ?", withArgs: [touchestype]) {
             //there was an error during the insert, handle it here
             return false
         } else {
@@ -155,27 +105,13 @@ class DBModel {
     
     // DB内すべてのデータを削除
     func deleteAll() -> Bool{
-        if let _ = SD.executeChange("DELETE FROM meta_values") {
+        if let _ = SD.executeChange("DELETE FROM anyremocon") {
             //there was an error during the insert, handle it here
             return false
         } else {
             //no error, the row was inserted successfully
             return true
         }
-    }
-    
-    // startdateが空文字のデータ(挿入したばかりのデータ)のIDを取得
-    func lastInsertId() -> Int{
-        var result: Int? = nil
-        let (resultSet, err) = SD.executeQuery("SELECT * FROM meta_values WHERE startdate = ''")
-        if err != nil{
-            result = 0
-        }else{
-            for row in resultSet {
-                result = row["ID"]?.asInt()
-            }
-        }
-        return result!
     }
     
 }

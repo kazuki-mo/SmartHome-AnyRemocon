@@ -11,6 +11,7 @@ import UIKit
 
 class SettingController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // DB用
     let dbModel = DBModel()
     var objects = NSMutableArray()
     var objects_single = NSMutableArray()
@@ -27,16 +28,23 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
     var right_dic = NSMutableDictionary()
     var left_dic = NSMutableDictionary()
     
+    // TableView
     @IBOutlet weak var Tv_Setting: UITableView!
+    
+    // 画面左下の「キャンセル」ボタン
     @IBAction func BT_Cancel(sender: AnyObject) {
         
+        // 「メイン画面」へ
         let myViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         myViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
         self.navigationController?.pushViewController(myViewController, animated: true)
         
     }
+    
+    // 画面右下の「設定」ボタン
     @IBAction func BT_Set(sender: AnyObject) {
         
+        // 設定された値をDBへ格納（更新）
         var data = DataModel(touchestype: "single", command1: single_dic["command1"] as! String, command2: single_dic["command2"] as! String, command3: single_dic["command3"] as! String, command4: single_dic["command4"] as! String)
         dbModel.update(data)
         
@@ -64,6 +72,7 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // DBの中身を取得
         objects = dbModel.getAll()
         for object in objects{
             let id = object["ID"] as! Int
@@ -102,12 +111,14 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
     // Cellが選択された際に呼び出される.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        // 空白行
         if(indexPath.row == 4 || indexPath.row == 9 || indexPath.row == 14 || indexPath.row == 19 || indexPath.row == 24){
             return
         }
         
         var value = ""
         
+        // アラートダイアログの中身を設定
         let alert:UIAlertController = UIAlertController(title:"リモコン操作の設定",
             message: "設定するリモコン操作を選んで下さい",
             preferredStyle: UIAlertControllerStyle.Alert)
@@ -417,9 +428,10 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier:"SettingCell" )
         
         cell.backgroundColor = UIColor.clearColor()
-        // Cellに値を設定.
         cell.textLabel!.sizeToFit()
         cell.textLabel!.textColor = UIColor.blackColor()
+        
+        // DBの中身を初期値として設定
         if(indexPath.row == 0){
             cell.textLabel!.text = "シングルタップ　　　1"
             cell.detailTextLabel!.text = changeName_DB((single_dic["command1"] as? String)!)
@@ -516,6 +528,7 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
+    // 変更した設定値をDictionaryに格納
     func setDictionary(row:Int, value:String){
         if(row == 0){
             self.single_dic.setValue(value, forKey: "command1")
@@ -568,6 +581,7 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
+    // DB用名前 → 画面表示用名前
     func changeName_DB(before:String) -> String{
         var after:String = ""
         
@@ -626,6 +640,7 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
         return after
     }
     
+    // 画面表示用名前 → DB用名前
     func changeName_Display(before:String) -> String{
         var after:String = ""
         
@@ -682,5 +697,20 @@ class SettingController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         return after
+    }
+    
+    // Cellが選択された時のAlertActionを作成する関数
+    func createAlertAction(name:String, row:Int, tableView:UITableView) -> UIAlertAction {
+        
+        let Action:UIAlertAction = UIAlertAction(title: name,
+            style: UIAlertActionStyle.Default,
+            handler:{
+                (action:UIAlertAction) -> Void in
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0))?.detailTextLabel?.text = "\(name)"
+                
+                self.setDictionary(row, value: self.changeName_Display("\(name)"))
+        })
+        return Action
+        
     }
 }

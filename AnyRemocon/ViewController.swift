@@ -11,9 +11,13 @@ import Foundation
 
 class ViewController: UIViewController {
     
+    // シングルタップとダブルタップを分ける用
     var timer : NSTimer!
+    
+    // HTTP GET 用
     let session: NSURLSession = NSURLSession.sharedSession()
     
+    // DB用
     let dbModel = DBModel()
     var objects = NSMutableArray()
     var single_dic = NSMutableDictionary()
@@ -23,6 +27,7 @@ class ViewController: UIViewController {
     var right_dic = NSMutableDictionary()
     var left_dic = NSMutableDictionary()
     
+    // 家電の設定値
     var Aircon_SetTempValue = 0.0
     var Aircon_AirFlowValue = 0
     var Aircon_DriveModeValue = 0
@@ -30,42 +35,51 @@ class ViewController: UIViewController {
     var Light_LightColorValue = 0
     var Light_LightingModeValue = 0
     
+    // 上部の家電アイコンボタンを押したらtrue
     var Flag_TV = false
     var Flag_Aircon = false
     var Flag_Light = false
     var Flag_AirClean = false
     var Flag_Remocon = false
     
+    // 家電設定値表示用
     @IBOutlet weak var Lb_1: UILabel!
     @IBOutlet weak var Lb_2: UILabel!
     @IBOutlet weak var Lb_3: UILabel!
     @IBOutlet weak var Lb_Power: UILabel!
     
-    
+    // 上部ラベル，家電名
     @IBOutlet weak var Lb_Text: UILabel!
     @IBOutlet weak var Lb_Type: UILabel!
 
+    // 上部の家電アイコンボタン
     @IBOutlet weak var BT_Remocon: UIButton!
     @IBOutlet weak var BT_AirClean: UIButton!
     @IBOutlet weak var BT_Light: UIButton!
     @IBOutlet weak var BT_Aircon: UIButton!
     @IBOutlet weak var BT_TV: UIButton!
 
+    // 「ユーザ設定」画面右下の「設定画面」ボタン
     @IBOutlet weak var BT_Setting: UIButton!
+    
+    // 画面中央の家電アイコン
     @IBOutlet weak var Im_Remocon: UIImageView!
     @IBOutlet weak var Im_AirClean: UIImageView!
     @IBOutlet weak var Im_Light: UIImageView!
     @IBOutlet weak var Im_Aircon: UIImageView!
     @IBOutlet weak var Im_TV: UIImageView!
     
+    // 「ユーザ設定」画面右下の「設定画面」ボタン
     @IBAction func BT_Setting(sender: AnyObject) {
-        
+    
+        // 設定画面へ
         let mySettingController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingController") as! SettingController
         mySettingController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
         self.navigationController?.pushViewController(mySettingController, animated: true)
         
     }
 
+    // 上部の家電アイコンボタン
     @IBAction func BT_Remocon(sender: AnyObject) {
         Flag_TV = false
         Flag_Aircon = false
@@ -93,6 +107,7 @@ class ViewController: UIViewController {
         Lb_3.hidden = true
         Lb_Power.hidden = true
         
+        // DBの中身(ユーザ設定リモコンの設定値)を取得
         objects = dbModel.getAll()
         for object in objects{
             let id = object["ID"] as! Int
@@ -119,6 +134,7 @@ class ViewController: UIViewController {
             }
         }
         
+        // 各種家電の設定値を取得
         var url = NSURL(string: "http://ubi-t07.naist.jp:5000/Aircon_LR/getSetTemp")!
         http_get(url, completionHandler: { data, response, error in
             let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -230,6 +246,7 @@ class ViewController: UIViewController {
         Lb_3.hidden = true
         Lb_Power.hidden = false
         
+        // 空気清浄機の設定値を取得
         let url: NSURL = NSURL(string: "http://ubi-t07.naist.jp:5000/AirClean/getPower")!
         http_get(url, completionHandler: { data, response, error in
             let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -274,6 +291,7 @@ class ViewController: UIViewController {
         Lb_3.hidden = false
         Lb_Power.hidden = false
         
+        // 天井照明の設定値を取得
         var url: NSURL = NSURL(string: "http://ubi-t07.naist.jp:5000/Light_LR/getPower")!
         http_get(url, completionHandler: { data, response, error in
             let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -379,6 +397,8 @@ class ViewController: UIViewController {
         Lb_3.hidden = false
         Lb_Power.hidden = false
         
+        
+        // エアコン設定値を取得
         var url: NSURL = NSURL(string: "http://ubi-t07.naist.jp:5000/Aircon_LR/getPower")!
         http_get(url, completionHandler: { data, response, error in
             let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -484,6 +504,7 @@ class ViewController: UIViewController {
         Lb_3.hidden = true
         Lb_Power.hidden = false
         
+        // テレビの設定値を取得
         let url: NSURL = NSURL(string: "http://ubi-t07.naist.jp:5000/TV/getPower")!
         http_get(url, completionHandler: { data, response, error in
             let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
@@ -566,13 +587,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // シングルタップ・ダブルタップ
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if touches.first?.tapCount == 1{
             Lb_Text.text = "シングルタップ"
             
+            // 0.25秒後にシングルタップに対応する家電操作を行う（ダブルタップしたときにシングルタップが呼ばれてしまう問題を解決する為）
             timer = NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: "onSingle:", userInfo: nil, repeats: true)
             
         }else{
+            // シングルタップのタイマーを破棄（シングルタップに対応する家電操作は行わなくなる）
             timer.invalidate()
             
             Lb_Text.text = "ダブルタップ"
@@ -628,6 +652,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // 上スワイプ
     func handleSwipeUp(sender: UITapGestureRecognizer){
         Lb_Text.text = "Swiped up!"
         
@@ -682,6 +707,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // 下スワイプ
     func handleSwipeDown(sender: UITapGestureRecognizer){
         Lb_Text.text = "Swiped down!"
         
@@ -736,6 +762,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // 左スワイプ
     func handleSwipeLeft(sender: UITapGestureRecognizer){
         Lb_Text.text = "Swiped left!"
         
@@ -826,6 +853,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // 右スワイプ
     func handleSwipeRight(sender: UITapGestureRecognizer){
         Lb_Text.text = "Swiped right!"
         
@@ -916,6 +944,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // ユーザ設定リモコン用
     func sendCommand(command:String){
         
         if(command == "Nothing"){
@@ -1173,6 +1202,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // シングルタップの家電操作
     func onSingle(_timer : NSTimer){
         timer.invalidate()
         if(Flag_TV){
@@ -1224,6 +1254,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // HTTP GETを行う関数
     func http_get(url: NSURL, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
         
